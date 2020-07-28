@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>qPCR GENERATOR</title>
+</head>
+
+<body>
+  <h2>Number of plates needed: <%= plates.length %><h2>
+
+  <% plates.each_with_index do |plate, index| %>
+    <h2>Layout of plate number <%= index + 1 %></h2>
+
+    <table>
+      <tr>
+        <th></th>
+        <% plate.first.length.times do |i| %>
+          <th><%= i + 1 %></th>
+        <% end %>
+      </tr>
+      <% letter = "@" %>
+      <% plate.each do |row| %>
+        <tr>
+          <th><%= letter.next! %></th>
+          <% row.each do |well| %>
+            <% if well %>
+              <td style="background-color: #<%= colors[well[1]] %>"><%= well[0] %><br><%= well[1] %></td>
+            <% else %>
+              <td style="background-color: lightgray"></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+
+  <% end %>
+
+</body>
+
+</html>

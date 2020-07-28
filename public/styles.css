@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+th {
+  min-width: 40px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+td {
+  height: 20px;
+  min-width: 60px;
+  padding: 10px;
+  font-size: 10px;
+}
